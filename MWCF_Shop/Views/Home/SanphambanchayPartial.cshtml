@@ -1,0 +1,13 @@
+﻿
+@foreach (var product in Model)
+{
+    <div class="box">
+        <a href="@Url.Action("Chitietsanpham","HOME",new { id= product.MaSP})">
+            <img src="~/assets/img/gallery/@product.Hinh" />
+          
+            <span style="color:#000000;">@product.TenSp</span>
+
+          
+        </a>
+    </div>
+}

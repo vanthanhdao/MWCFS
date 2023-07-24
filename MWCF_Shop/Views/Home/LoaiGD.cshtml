@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "LoaiGD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main>
+
+    <div class="page-notification">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li><a href="~/HOME/Index">Trang chủ </a></li>
+                            <li><a href="#">Giày & Dép </a></li>
+                            <li>
+                                <a href="#">
+                                    Loại sản phẩm
+                                </a>
+                            </li>
+
+
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- listing Area Start -->
+    <div class="category-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="section-tittle mb-50">
+                        <h2 style="font:bold;">
+                            <a href="~/HOME/Trang_GD/?id=3">
+                               GIÀY & DÉP
+                            </a>
+                        </h2>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--? Left content -->
+                <div class="col-xl-3 col-lg-3 col-md-4 ">
+                    <!-- Job Category Listing start -->
+                    <div class="category-listing mb-50">
+                        <!-- single one -->
+                        <div class="single-listing">
+
+                            @Html.Action("LoaiGDPartial", "HOME", new { id = 3 })
+
+
+                        </div>
+                    </div>
+                    <!-- Job Category Listing End -->
+                </div>
+                <!--?  Right content -->
+                <div class="col-xl-9 col-lg-9 col-md-8 ">
+
+                    <!--? New Arrival Start -->
+                    <div class="new-arrival new-arrival2">
+                        <div class="row">
+                            @foreach (var product in Model)
+                            {
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                                    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                                        <div class="popular-img">
+                                            <a href="@Url.Action("Chitietsanpham","HOME",new { id= product.MaSP})">
+                                                <img src="~/assets/img/gallery/@product.Hinh" alt="">
+                                            </a>
+                                            <div class="favorit-items">
+                                                <a href="@Url.Action("ThemGioHang","Giohang" ,new { ms=product.MaSP, url=Request.Url.ToString()})">
+
+                                                    <img src="~/assets/img/gallery/favorit-card.png" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="popular-caption">
+                                            <h3><a href="@Url.Action("Chitietsanpham","HOME",new { id= product.MaSP})">@product.TenSp</a></h3>
+                                            <div class="rating mb-10">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span>@product.DonGia VNĐ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+                    <!--? New Arrival End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- listing-area Area End -->
+
+
+</main>
+
+
+
+

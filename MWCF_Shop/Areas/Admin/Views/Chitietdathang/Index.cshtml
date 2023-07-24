@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MWCF_Shop.Models.CTDATHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <div style="text-align:center; padding-top:20px;">
+
+                <h1>Chi tiết đơn hàng</h1>
+
+            </div>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SoLuong)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DonGia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ThanhTien)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DONDATHANG.TenNguoiNhan)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SANPHAM.TenSp)
+                    </th>
+                    
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoLuong)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DonGia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ThanhTien)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DONDATHANG.TenNguoiNhan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SANPHAM.TenSp)
+                        </td>
+                     
+                    </tr>
+                }
+
+            </table>
+            <p>
+                <a href="@Url.Action("Index","Quanlydonhang")" class="btn btn-success" role="button">Trở về</a>
+            </p>
+        </div>
+    </section>
+</div>

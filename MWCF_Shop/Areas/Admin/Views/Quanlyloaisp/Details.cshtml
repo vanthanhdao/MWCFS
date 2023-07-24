@@ -1,0 +1,73 @@
+﻿@model MWCF_Shop.Models.LOAISANPHAM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<h2>Details</h2>
+
+<div>
+    <h4>LOAISANPHAM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DANHMUC_SP.TenDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DANHMUC_SP.TenDM)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLoai }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+
+
+
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <h2 style="text-align:center;">Chi tiết loại sản phẩm</h2>
+
+            <div>
+
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        Tên loại sản phẩm
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TenLoai)
+                    </dd>
+                    <dt>
+                        Tên danh mục sản phẩm
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DANHMUC_SP.TenDM)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                <a href="@Url.Action("Edit", new { id = Model.MaDM })" class="btn btn-warning" role="button">Cập nhật</a>
+                <a href="@Url.Action("Index","Quanlyloaisp")" class="btn btn-success" role="button">Trở về</a>
+            </p>
+        </div>
+    </section>
+</div>

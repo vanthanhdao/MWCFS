@@ -1,0 +1,280 @@
+﻿
+@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@model IEnumerable<MWCF_Shop.Models.SANPHAM>
+
+<main>
+
+    <!--? Hero Area Start-->
+    <div class="container-fluid">
+        <div class="slider-area">
+            <!-- Mobile Device Show Menu-->
+            <!--<div class="header-right2 d-flex align-items-center">-->
+            <!-- Social -->
+            <!--<div class="header-social  d-block d-md-none">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>-->
+            <!-- Search Box -->
+            <!--<div class="search d-block d-md-none">
+                    <ul class="d-flex align-items-center">
+                        <li class="mr-15">
+                            <div class="nav-search search-switch">
+                                <i class="ti-search"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-stor">
+                                <img src="~/assets/img/gallery/card.svg" alt="">
+                                <span>0</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+            <!-- /End mobile  Menu-->
+
+            <div class="slider-active dot-style">
+                <!-- Single -->
+                <div class="single-slider slider-bg1 hero-overly slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-8 col-lg-9">
+                                <!-- Hero Caption -->
+                                <div class="hero__caption">
+                                    <h1>THÊM YÊU<br>VẺ ĐẸP<br>CỦA CHÍNH MÌNH</h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="single-slider slider-bg2 hero-overly slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-8 col-lg-9">
+                                <!-- Hero Caption -->
+                                <div class="hero__caption">
+                                    <h1>DÙ TỐT HAY XẤU<br>HÃY LÀ CHÍNH BẠN</h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="single-slider slider-bg3 hero-overly slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-8 col-lg-9">
+                                <!-- Hero Caption -->
+                                <div class="hero__caption">
+                                    <h1>TỰ TIN<br>THỂ HIỆN</h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Hero -->
+    <!--? Popular Items Start -->
+    <div class="popular-items pt-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                        <div class="popular-img">
+                            <img src="~/assets/img/gallery/popular1.png" alt="">
+                            <div class="img-cap">
+                                <span>QUẦN VÀ ÁO</span>
+                            </div>
+                            <div class="favorit-items">
+                                <a href="~/HOME/Trang_QA/?id=1" class="btn">XEM NGAY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="popular-img">
+                            <img src="~/assets/img/gallery/popular2.png" alt="">
+                            <div class="img-cap">
+                                <span>PHỤ KIỆN</span>
+                            </div>
+                            <div class="favorit-items">
+                                <a href="shop.html" class="btn">XEM NGAY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                        <div class="popular-img">
+                            <img src="~/assets/img/gallery/popular3.png" alt="">
+                            <div class="img-cap">
+                                <span>GIÀY & DÉP</span>
+                            </div>
+                            <div class="favorit-items">
+                                <a href="shop.html" class="btn">XEM NGAY  </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Popular Items End -->
+    <!--? New Arrival Start -->
+    <div class="new-arrival">
+        <div class="container">
+            <!-- Section tittle -->
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="section-tittle mb-60 text-center wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
+                        <h2>SẢN PHẨM<br>MỚI</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                @foreach (var product in Model)
+                {
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                            <div class="popular-img">
+                                <a href="@Url.Action("Chitietsanpham","HOME",new { id= product.MaSP})">
+                                    <img src="~/assets/img/gallery/@product.Hinh" alt="">
+                                </a>
+                                <div class="favorit-items">
+                                    <a href="@Url.Action("Chitietsanpham","HOME",new { id= product.MaSP})">
+
+                                    </a>
+                                    <a href="@Url.Action("ThemGioHang","GioHang" ,new { ms=product.MaSP, url=Request.Url.ToString()})">
+
+                                        <img src="~/assets/img/gallery/favorit-card.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="popular-caption">
+                                <h3><a href="@Url.Action("Chitietsanpham","HOME",new { id= product.MaSP})">@product.TenSp</a></h3>
+                                <div class="rating mb-10">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>@product.DonGia VNĐ</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+
+            </div>
+          
+        </div>
+    </div>
+  
+   
+
+
+    <!--? Popular Locations Start 01-->
+    <div class="popular-product pt-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="single-product mb-50">
+                        <div class="location-img">
+                            <img src="~/assets/img/gallery/popular-imtes1.png" alt="">
+                        </div>
+                        <div class="location-details">
+                            <p><a href="product_details.html">7 mẹo diện đồ hack dáng tuyệt đối lại chẳng bao giờ bị lỗi mốt</a></p>
+                            <a href="product_details.html" class="btn">Đọc thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="single-product mb-50">
+                        <div class="location-img">
+                            <img src="~/assets/img/gallery/popular-itmes.png" alt="">
+                        </div>
+                        <div class="location-details">
+                            <p><a href="product_details.html">Đâu chỉ hợp với váy áo nữ tính, Midu diện suit cũng sành điệu và phong cách chẳng kém ai</a></p>
+                            <a href="product_details.html" class="btn">Đọc thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Popular Locations End -->
+    <!--? Services Area Start -->
+    <div class="categories-area section-padding40 gray-bg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-cat mb-50 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="cat-icon">
+                            <img src="~/assets/img/icon/services1.svg" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5>Miễn phí vận chuyển cho mọi đơn hàng</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-cat mb-50 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="cat-icon">
+                            <img src="~/assets/img/icon/services2.svg" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5>Thanh toán an toàn</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-cat mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                        <div class="cat-icon">
+                            <img src="~/assets/img/icon/services3.svg" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5>Cam kết hàng chính hãng</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-cat wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                        <div class="cat-icon">
+                            <img src="~/assets/img/icon/services4.svg" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5>Giao hàng trong 24h</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--? Services Area End -->
+</main>
+
+

@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "LoginLogoutPartial";
+    Layout = null;
+}
+
+
+@using MWCF_Shop.Models
+@{
+    ADMIN kh = (ADMIN)Session["Admin"];
+
+
+}
+
+@if (Session["Admin"] == null)
+//Giao diện Login
+{
+
+
+    <a href="~/Admin/HomeAD/Login">
+        <span class="glyphicon glyphicon-log-in"></span> Đăng nhập
+    </a>
+
+}
+else
+{
+    <a>
+        @kh.TenAD
+        <a href="@Url.Action("DangXuat", "HomeAD")">
+    <span class="glyphicon glyphicon-log-out" style="margin-left:40px;"></span>
+        </a>
+    </a>
+}
+

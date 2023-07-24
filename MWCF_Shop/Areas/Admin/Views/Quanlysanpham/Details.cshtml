@@ -1,0 +1,90 @@
+﻿@model MWCF_Shop.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <h2 style="text-align:center;">CHI TIẾT SẢN PHẨM</h2>
+            <div>
+
+                <hr />
+                <div class="directory-details pt-padding">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="gallery-img">
+                                    <div class="row">
+                                        <div class="col-lg-11">
+
+                                            <img src="~/assets/img/gallery/@Model.Hinh" class="mb-30" alt="">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="Product-info">
+
+                                    <h4 style="font-size: 30px; font-weight: bold;  font-family:'Times New Roman', Times, serif; ">@Model.TenSp</h4>
+
+
+                                    <hr />
+                                    <h3 style=" font-size: 20px; font-weight: 100; font-family: 'Times New Roman', Times, serif; ">
+                                        Giá bán: @Model.DonGia VNĐ
+                                    </h3>
+                                    <hr />
+                                    <h3 style=" font-family: 'Times New Roman', Times, serif;">
+                                        Màu sắc
+                                    </h3>
+                                    <hr />
+                                    <h3 style=" font-family: 'Times New Roman', Times, serif; ">
+                                        Kích thước
+                                    </h3>
+
+
+
+                                    <hr />
+
+                                    <h3 style=" font-family: 'Times New Roman', Times, serif; margin-bottom: 50px;">
+
+                                        Mô tả chi tiết:
+                                        <p>
+
+                                            @Html.Raw(@Model.MoTa.ToString().Replace("\n", "<br>"))
+                                        </p>
+                                    </h3>
+                                    <h3 style=" font-family: 'Times New Roman', Times, serif; margin-bottom: 50px;">
+
+                                        Ngày cập nhật: @Html.FormatValue(@Model.NgayCapNhat, "{0:dd/MM/yyyy}")
+
+                                    </h3>
+
+                                    @*<ul>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">Mô tả chi tiết<span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="list-group-item">
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>*@
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <a href="@Url.Action("Update", new { id = Model.MaSP })" class="btn btn-warning" role="button">Sửa</a>
+                <a href="@Url.Action("Index","Quanlysanpham")" class="btn btn-success" role="button">Trở về</a>
+
+            </p>
+        </div>
+    </section>
+</div>

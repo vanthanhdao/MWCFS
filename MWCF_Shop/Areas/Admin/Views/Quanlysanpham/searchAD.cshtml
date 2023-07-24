@@ -1,0 +1,99 @@
+﻿@using MWCF_Shop.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<MWCF_Shop.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <h2 style="text-align:center;">Quản lý sản phẩm</h2>
+
+            <p>
+                @Html.ActionLink("Thêm mới", "Add", null, new { @class = "btn btn-primary" })
+            </p>
+
+            <table class="table">
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Mô tả</th>
+                    <th>Giá</th>
+                    <th>Hình ảnh</th>
+                    <th>Ngày cập nhật</th>
+                    <th>Số lượng bán</th>
+                    <th>Tên danh mục</th>
+                    <th>Tên loại</th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenSp)
+                        </td>
+                        <td style="overflow: hidden; text-overflow: ellipsis; line-height: 25px; -webkit-line-clamp: 2; height: 65px; display: -webkit-box; -webkit-box-orient: vertical;">
+                            @Html.Raw(item.MoTa)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DonGia)
+                        </td>
+                        <td>
+                            <img style="height:200px; width:200px;" src="~/assets/img/gallery/@item.Hinh" alt="">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoluongBan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DANHMUC_SP.TenDM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LOAISANPHAM.TenLoai)
+                        </td>
+
+                        <td>
+                            <a href="@Url.Action("Update", new { id = item.MaSP })" class="btn btn-warning" role="button">Cập nhật</a>
+                            <hr />
+                            <a href="@Url.Action("Details",new {id=item.MaSP})" class="btn btn-success" role="button">Chi tiết</a>
+                            <hr />
+
+                            <button onclick="return confirm('Bạn muốn xóa sản phẩm này?')" type="button" class="btn btn-danger">
+                                <a>
+                                    @Html.ActionLink("Xóa", "DeleteConfirmed", new { id = item.MaSP }@*, new {onclick = "return confirm('Are you sure')"}*@)
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+</div>
+<br />
+Trang @(Model.PageCount<Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuTrang {
+        display: inline;
+        text-align: center;
+    }
+
+    a {
+        color: rgb(255 255 255 / 80%);
+        text-decoration: none;
+        background-color: transparent;
+    }
+</style>

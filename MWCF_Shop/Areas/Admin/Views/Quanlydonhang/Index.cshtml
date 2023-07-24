@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MWCF_Shop.Models.DONDATHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <h2 style="text-align:center;">Quản lý đơn đặt hàng</h2>
+
+            <p>
+                @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-primary" })
+            </p>
+            <table class="table">
+                <tr>
+                    <th>Tên người nhận</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Tổng tiền</th>
+                    <th>Địa chỉ người nhận</th>
+                    <th>Số điện thoại người nhận</th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenNguoiNhan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayDH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TriGia)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaChiNhan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DienThoaiNhan)
+                        </td>
+
+
+                        <td>
+                            <a href="@Url.Action("Edit", new { id = item.SoDH })" class="btn btn-warning" role="button">Cập nhật</a>
+
+                            <a href="~/Admin/Chitietdathang/Index/?id=@item.SoDH" class="btn btn-success" role="button">Chi tiết</a>
+
+                            <button onclick="return confirm('Bạn muốn xóa đơn hàng này?')" type="button" class="btn btn-danger">
+                                <a>
+                                    @Html.ActionLink("Delete", "DeleteConfirmed", new { id = item.SoDH })
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "LoginLogoutPartial";
+    
+}
+
+
+@using MWCF_Shop.Models
+@{
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+
+
+}
+
+@if (Session["TaiKhoan"] == null)
+//Giao diện Login
+{
+    <li>
+        <a href="~/Khachhang/DangKy">
+            <span class="glyphicon glyphicon-user"></span> Đăng ký
+        </a>
+    </li>
+    <li>
+        <a href="~/Khachhang/DangNhap">
+            <span class="glyphicon glyphicon-log-in"></span> Đăng nhập
+        </a>
+    </li>
+}
+else
+{ <li>
+        <a>
+            <span class="glyphicon glyphicon-user"></span>Xin chào: @kh.TenKH
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("DangXuat","Khachhang")">
+            <span class="glyphicon glyphicon-log-out">
+            </span>
+            Đăng xuất
+        </a>
+    </li>
+}
+
