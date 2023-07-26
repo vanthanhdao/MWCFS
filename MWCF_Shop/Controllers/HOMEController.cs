@@ -75,28 +75,28 @@ namespace MWCF_Shop.Controllers
         public ActionResult search(string search = "")
         {
 
-            //List<SANPHAM> sp = new List<SANPHAM>();
-            //if (string.IsNullOrEmpty(search))
-            //{
-            //    ViewData["errSearchEMpty"] = "Bạn phải nhập từ khóa cần tìm kiếm";
-            //}
-            //else
-            //{
-            //    string input = search;
-            //    // Chúng ta coi các ký tự chữ cái, chữ số và khoảng trắng là "bình thường"
-            //    string pattern = "[^a-zA-Z0-9 ]";
-            //    MatchCollection matches = Regex.Matches(input, pattern);
-            //    if (matches.Count > 0)
-            //    {
-            //        ViewData["errSearchInvalid"] = "Từ khóa tìm kiếm chứa ký tự không hợp lệ";
-            //    }
-            //    sp = db.SANPHAMs.Where(n => n.TenSp.Contains(search)).ToList();
-            //    return View(sp);
-            //}
-            //return View(sp);
-
-            List<SANPHAM> sp = db.SANPHAMs.Where(n => n.TenSp.Contains(search)).ToList();
+            List<SANPHAM> sp = new List<SANPHAM>();
+            if (string.IsNullOrEmpty(search))
+            {
+                ViewData["errSearchEMpty"] = "Bạn phải nhập từ khóa cần tìm kiếm";
+            }
+            else
+            {
+                string input = search;
+                // Chúng ta coi các ký tự chữ cái, chữ số và khoảng trắng là "bình thường"
+                string pattern = "[^a-zA-Z0-9 ]";
+                MatchCollection matches = Regex.Matches(input, pattern);
+                if (matches.Count > 0)
+                {
+                    ViewData["errSearchInvalid"] = "Từ khóa tìm kiếm chứa ký tự không hợp lệ";
+                }
+                sp = db.SANPHAMs.Where(n => n.TenSp.Contains(search)).ToList();
+                return View(sp);
+            }
             return View(sp);
+
+            //List<SANPHAM> sp = db.SANPHAMs.Where(n => n.TenSp.Contains(search)).ToList();
+            //return View(sp);
         }
 
         public ActionResult Gioithieu()
