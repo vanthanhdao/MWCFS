@@ -74,7 +74,7 @@ namespace MWCF_Shop.Controllers
 
         public ActionResult search(string search = "")
         {
-
+            //
             List<SANPHAM> sp = new List<SANPHAM>();
             if (string.IsNullOrEmpty(search))
             {
